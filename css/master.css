@@ -1,0 +1,61 @@
+@font-face {
+  font-family: 'Flexo';
+  src: url("./Flexo/Flexo-Light.otf");
+}
+.flex{
+  display:flex;
+  justify-content: center;
+  align-items: center;
+  height: 50px;
+  padding: 8px;
+  margin-top: 3%;
+}
+.fa-search{
+  display: inline-flex;
+  font-size: 25px;
+}
+.az{
+  background-color: #7aa44a;
+  width: 50px;
+  height: 20px;
+  color:  #fff;
+  text-align: center;
+  float: right;
+  margin-top: 9%;
+}
+.flex-img{
+  display: flex;
+  justify-content: center;
+  padding-top: 5px;
+}
+.img-poke{
+  height: 100px;
+}
+.group-details{
+  margin: 1% 10%;
+}
+.group-details > div{
+  background-color: #dddddd;
+  margin: 2%  1%;
+  display: inline-block;
+  width: 180px;
+  height: 150px;
+}
+.bg-img{
+  background-image: url(../img/white.png);
+  background-repeat: no-repeat;
+  width: 200px;
+  height: 50px;
+  margin-top: 5%;
+}
+.img-icons{
+  display: flex;
+  justify-content: space-around;
+  padding-top: 10px;
+  width: 50%;
+  margin: auto;
+}
+.poke{
+  width: 15px;
+  height: 15px;
+}
