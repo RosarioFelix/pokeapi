@@ -23,8 +23,8 @@ const Modal = () => {
   const colDoce = $('<div class="col m12"></div>');
   const titleModal  = $('<h2 class="center-align title">'+namePokemom+'</h2>');
   const rowDos    = $('<div class="row"></div>');
-  const imgColumn   = $('<div class="col s6 m6"></div>');
-  const detailsColumn = $('<div class="col s6 m6"></div>');
+  const imgColumn   = $('<div class="col s6 m4"></div>');
+  const detailsColumn = $('<div class="col s6 m8"></div>');
   const introPokemon  = $('<p class = "text">'+state.selectedStation.flavor_text_entries[1].flavor_text+'</p>');
   console.log(state.selectedStation.flavor_text_entries);
 
