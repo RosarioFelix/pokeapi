@@ -59,3 +59,11 @@
   width: 15px;
   height: 15px;
 }
+.title{
+  text-transform: capitalize;
+}
+.text{
+  font-size: 15px;
+  font-weight: 300;
+  text-align: justify;
+}

@@ -6,6 +6,7 @@ const render = (root) =>{
   wrapper.append(Header(_ => render(root)));
   wrapper.append(Search(_ => render(root)));
 
+  wrapper.append(Modal(_ => render(root)));
   root.append(wrapper);
 }
 const state = {
@@ -23,6 +24,5 @@ $( _ => {
   const root = $('.root');
   render(root);
 
-  $('.modal').modal();
   });
 });

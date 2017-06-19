@@ -8,7 +8,7 @@ const Detalles = (station, update) =>{
   const pokeball = $('<img class ="poke" src ="img/pokeball.png"/>')
   const heart = $('<img class ="poke" src ="img/heart.png"/>');
   const data = $('<img class ="poke" src ="img/data.png"/>')
-  const title = $('<h6 class = "center-align">'+station.pokemon_species.name+'</h6 >');
+  const title = $('<h6 class =  "center-align title">'+station.pokemon_species.name+'</h6 >');
 
  grid.append(gridImg);
  gridImg.append(img);
@@ -19,8 +19,20 @@ const Detalles = (station, update) =>{
  divIcons.append(data);
  divWhite.append(title);
 
- return grid;
+ img.on('click', _ => {
+    $('.modal').modal();
+    $.get(station.pokemon_species.url,(urlPokemon)=>{
+        state.selectedStation = urlPokemon;
+        if(state.selectedStation) {
+            let duplicarImagen = grid.clone();
+            let namePokemom = station.pokemon_species.name;
+            let imgNum = station.entry_number;
+            $('.modal-content').append(DetallesPokemon(duplicarImagen,namePokemom ,imgNum ));
+        }
+    });
+});
 
+ return grid;
 };
 
 const Search = () =>{
@@ -48,19 +60,19 @@ const Search = () =>{
 
   input.on("keyup", (e) => {
     e.preventDefault;
-    const filterGas = filterByDistrict(state.stations.pokemon_entries, $(e.currentTarget).val());
-    reRender(groupContainer,filterGas);
+    const filterPokemon = filterByPokemon(state.stations.pokemon_entries, $(e.currentTarget).val());
+    reRender(groupContainer,filterPokemon);
   });
 
-  reRender(groupContainer, filterByDistrict(state.stations.pokemon_entries,""));
+  reRender(groupContainer, filterByPokemon(state.stations.pokemon_entries,""));
 
   return search;
 };
 
-const reRender = (groupContainer, filterGas) => {
+const reRender = (groupContainer, filterPokemon) => {
   groupContainer.empty();
-  filterGas.forEach(pokemonHola => {
+  filterPokemon.forEach(pokemonHola => {
     console.log(pokemonHola)
-  groupContainer.append(Detalles(pokemonHola,_ =>{reRender(groupContainer, filterGas)}));
+  groupContainer.append(Detalles(pokemonHola,_ =>{reRender(groupContainer, filterPokemon)}));
   });
 };
